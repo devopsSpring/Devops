@@ -15,7 +15,7 @@ services:
   app:
     depends_on:
       - mysqldb
-    image: baherammari/app-spring
+    image: baherammari/app-spring-repo
     restart: always
     ports:
       - 8089:8089
