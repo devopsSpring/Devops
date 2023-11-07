@@ -1,4 +1,5 @@
-FROM openjdk:11
+FROM openjdk:11-jdk
+WORKDIR /app
+COPY target/devops-integration.jar /app/devops-integration.jar
 EXPOSE 8082
-ADD target/DevOps_Project-2.1.jar DevOps_Project-2.1.jar
-ENTRYPOINT ["java","-jar","DevOps_Project-2.1.jar"]
+CMD ["java", "-jar", "devops-integration.jar"]
