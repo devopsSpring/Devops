@@ -1,0 +1,28 @@
+version: "3"
+services:
+  mysqldb:
+    image: 'mysql'
+    networks:
+      - kaddem-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=0000
+      - MYSQL_DATABASE=mouhibTouaiti
+    ports:
+      - "3306:3306"
+
+  kaddemproject:
+    image: mouhibtouaiti/project-devop
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/mouhibTouaiti?autoReconnect=true&useSSL=false
+      SPRING_DATASOURCE_USERNAME: "root"
+      SPRING_DATASOURCE_PASSWORD: "0000"
+    ports:
+      - "8089:8089"
+    networks:
+      - mynetwork
+    depends_on:
+      - mysqldb
+
+networks:
+  kaddem-network:
+    driver: bridge
