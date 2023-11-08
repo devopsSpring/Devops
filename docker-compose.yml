@@ -10,7 +10,7 @@ services:
     ports:
       - "3306:3306"
 
-  kaddemproject:
+  Devops_project:
     image: mouhibtouaiti/project-devop
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/mouhibTouaiti?autoReconnect=true&useSSL=false
